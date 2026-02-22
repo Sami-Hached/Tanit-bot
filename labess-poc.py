@@ -1,3 +1,5 @@
+# Followed this guide: https://modal.com/docs/examples/vllm_inference
+
 import json
 from typing import Any
 
