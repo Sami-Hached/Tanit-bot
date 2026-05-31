@@ -70,4 +70,10 @@ def get_rag_response(query: str) -> str:
     )
 
     response = llm.invoke(prompt)
-    return response.content
+    content = response.content
+    if isinstance(content, list):
+        return "".join(
+            block.get("text", "") if isinstance(block, dict) else str(block)
+            for block in content
+        )
+    return str(content)
